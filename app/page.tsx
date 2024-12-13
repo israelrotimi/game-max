@@ -1,8 +1,8 @@
 import { Suspense } from 'react'
 import { fetchFeaturedGames } from '@/lib/gameService'
-import GameGrid from '@/components/GameGrid'
-import SearchBar from '@/components/SearchBar'
-import CategoryTabs from '@/components/CategoryTabs'
+import GameGrid from '@/app/components/GameGrid'
+import SearchBar from '@/app/components/SearchBar'
+import CategoryTabs from '@/app/components/CategoryTabs'
 
 export default async function HomePage() {
   const games = await fetchFeaturedGames()
