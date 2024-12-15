@@ -12,7 +12,8 @@ export default function GameGrid({ games }: GameGridProps) {
       {games.map((game) => (
         <div 
           key={game.id} 
-          className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow"
+          className="bg-game-bg-medium rounded-lg shadow-xl overflow-hidden 
+            transform transition-all hover:scale-105 border border-game-accent-purple/30"
         >
           <div className="relative w-full h-48">
             <Image 
@@ -25,15 +26,19 @@ export default function GameGrid({ games }: GameGridProps) {
           </div>
           <div className="p-4">
             <div className="flex justify-between items-center mb-2">
-              <h3 className="text-xl font-bold">{game.title}</h3>
+              <h3 className="text-xl font-bold text-game-accent-orange">
+                {game.title}
+              </h3>
               <div className="flex items-center">
-                <Star className="text-yellow-500 mr-1" size={20} />
+                <Star className="text-game-accent-purple mr-1" size={20} />
                 <span>{game.rating}</span>
               </div>
             </div>
-            <p className="text-gray-600 mb-4">{game.description}</p>
+            <p className="text-gray-400 mb-4">{game.description}</p>
             <button 
-              className="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition-colors"
+              className="w-full bg-game-accent-orange text-black 
+                py-2 rounded-lg hover:bg-game-accent-purple 
+                transition-colors font-bold"
             >
               Play Now
             </button>
