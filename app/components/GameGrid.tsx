@@ -16,11 +16,11 @@ export default function GameGrid({ games }: GameGridProps) {
             transform transition-all hover:scale-105 border border-game-accent-purple/30"
         >
           <div className="relative w-full h-48">
-            <Image 
+            <Image
               src={game.thumbnail} 
               alt={game.title}
-              fill
               className="object-cover"
+              fill
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             />
           </div>
@@ -39,6 +39,7 @@ export default function GameGrid({ games }: GameGridProps) {
               className="w-full bg-game-accent-orange text-black 
                 py-2 rounded-lg hover:bg-game-accent-purple 
                 transition-colors font-bold"
+                // onClick={() => {window.location = game.playUrl}}
             >
               Play Now
             </button>
