@@ -1,9 +1,9 @@
 import Image from 'next/image'
-import { Game } from '@/types/Game'
+import { GameInList } from '@/types/Game'
 import { Star } from 'lucide-react'
 
 interface GameGridProps {
-  games: Game[]
+  games: GameInList[]
 }
 
 export default function GameGrid({ games }: GameGridProps) {
@@ -16,13 +16,14 @@ export default function GameGrid({ games }: GameGridProps) {
             transform transition-all hover:scale-105 border border-game-accent-purple/30"
         >
           <div className="relative w-full h-48">
-            <Image
+              <Image
               src={game.thumbnail} 
               alt={game.title}
               className="object-cover"
               fill
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             />
+            
           </div>
           <div className="p-4">
             <div className="flex justify-between items-center mb-2">
@@ -31,15 +32,14 @@ export default function GameGrid({ games }: GameGridProps) {
               </h3>
               <div className="flex items-center">
                 <Star className="text-game-accent-purple mr-1" size={20} />
-                <span>{game.rating}</span>
+                <span>{10}</span>
               </div>
             </div>
-            <p className="text-gray-400 mb-4">{game.description}</p>
+            <p className="text-gray-400 mb-4">{game.short_description}</p>
             <button 
               className="w-full bg-game-accent-orange text-black 
                 py-2 rounded-lg hover:bg-game-accent-purple 
                 transition-colors font-bold"
-                // onClick={() => {window.location = game.playUrl}}
             >
               Play Now
             </button>

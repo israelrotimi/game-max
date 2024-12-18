@@ -1,56 +1,49 @@
-//import { Game } from '@/types/Game'
+import { GameInList } from "@/types/Game";
 
 const baseUrl = "https://www.freetogame.com/api";
 
-export async function fetchFeaturedGames() {
+export async function fetchFeaturedGames() : Promise<GameInList[] | null>{
   try {
     const res = await fetch(`${baseUrl}/games?platform=browser&sort-by=alphabetical`)
     const games = await res.json()
     return games;
   } catch (error) {
-    console.log("failed to fetch")
+    console.error("failed to fetch")
+    return null;
   }
 }
-export async function fetchGamesByCategory(category:string="shooter") {
+export async function fetchGamesByCategory(category: string) : Promise<GameInList[] | null>{
   try {
     const res = await fetch(`${baseUrl}/games?platform=browser&sort-by=alphabetical?category=${category}`)
     const games = res.json()
-    console.log(games)
     return games;
   } catch (error) {
-    console.log("failed to fetch")
+    console.error("failed to fetch")
+    return null;
   }
 }
-// developer
-// : 
-// "Archive Entertainment "
-// freetogame_profile_url
-// : 
-// "https://www.freetogame.com/8bitmmo"
-// game_url
-// : 
-// "https://www.freetogame.com/open/8bitmmo"
-// genre
-// : 
-// "MMORPG"
-// id
-// : 
-// 181
-// platform
-// : 
-// "PC (Windows), Web Browser"
-// publisher
-// : 
-// "Archive Entertainment "
-// release_date
-// : 
-// "2015-01-26"
-// short_description
-// : 
-// "A free to play retro­-style 2D MMO and a giant construction sandbox! "
-// thumbnail
-// : 
-// "https://www.freetogame.com/g/181/thumbnail.jpg"
-// title
-// : 
-// "8BitMMO"
+// This feature implementation is a pain in the ass. 
+// I think I will just leave it like this
+export async function fetchGamesWithSearch(
+  searchTerm: string,
+  games: Promise<GameInList[] | null> = fetchFeaturedGames()
+): Promise<GameInList[] | null> {
+  try {
+    const gamesList = await games;
+    if (!gamesList) return null;
+    const normalizedSearchTerm = searchTerm.toLowerCase();
+    const filteredGames = gamesList.filter((game) =>
+      [game.genre, game.platform, game.short_description, game.title].some((field) =>
+        field.toLowerCase().includes(normalizedSearchTerm)
+      )
+        );
+      return filteredGames
+  } catch (error) {
+    console.error("failed to fetch: ", error)
+    return null
+  }
+}
+
+
+
+
