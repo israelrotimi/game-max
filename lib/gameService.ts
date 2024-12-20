@@ -1,5 +1,4 @@
 import { Game, GameInList } from "@/types/Game";
-import { trackDynamic } from "next/dist/server/route-modules/app-route/module";
 
 const baseUrl = "https://www.freetogame.com/api";
 
@@ -9,7 +8,7 @@ export async function fetchFeaturedGames() : Promise<GameInList[] | null>{
     const games = await res.json()
     return games;
   } catch (error) {
-    console.error("failed to fetch")
+    console.error("failed to fetch: ", error)
     return null;
   }
 }
@@ -19,7 +18,7 @@ export async function fetchGamesByCategory(category: string) : Promise<GameInLis
     const games = res.json()
     return games;
   } catch (error) {
-    console.error("failed to fetch")
+    console.error("failed to fetch: ", error)
     return null;
   }
 }

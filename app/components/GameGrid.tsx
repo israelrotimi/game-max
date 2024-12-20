@@ -9,8 +9,8 @@ interface GameGridProps {
 export default function GameGrid({ games }: GameGridProps) {
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-      {games.map((game) => (
-        <Link href={`/games/${game.id}`}>
+      {games.map((game, i) => (
+        <Link key={i} href={`/games/${game.id}`}>
         <div 
           key={game.id} 
           className="bg-game-bg-medium rounded-lg shadow-xl overflow-hidden 

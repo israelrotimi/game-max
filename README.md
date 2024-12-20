@@ -1,4 +1,3 @@
-
 # GameMax
 
 ## A free to play online game platform where users can find games of different genres to play online

@@ -1,4 +1,3 @@
-import SearchBar from "@/app/components/SearchBar";
 import { fetchGame } from "@/lib/gameService";
 import { GamepadIcon } from "lucide-react";
 import Image from "next/image";

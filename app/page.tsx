@@ -9,7 +9,7 @@ export default async function HomePage() {
   const games = await fetchFeaturedGames()
 
   return (
-    <div className="container mx-auto px-4 py-8 bg-game-bg-dark min-h-screen">
+    <div className="container mx-auto px-4 py-8 bg-game-bg-dark min-h-screen w-full">
       <header className="mb-8 flex items-center justify-between">
         <div className="flex items-center">
           <GamepadIcon className="text-game-accent-orange mr-3" size={32} />
