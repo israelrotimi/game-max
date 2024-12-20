@@ -1,4 +1,5 @@
-import { GameInList } from "@/types/Game";
+import { Game, GameInList } from "@/types/Game";
+import { trackDynamic } from "next/dist/server/route-modules/app-route/module";
 
 const baseUrl = "https://www.freetogame.com/api";
 
@@ -22,8 +23,7 @@ export async function fetchGamesByCategory(category: string) : Promise<GameInLis
     return null;
   }
 }
-// This feature implementation is a pain in the ass. 
-// I think I will just leave it like this
+// This feature implementation is a pain in the ass.
 export async function fetchGamesWithSearch(
   searchTerm: string,
   games: Promise<GameInList[] | null> = fetchFeaturedGames()
@@ -43,7 +43,13 @@ export async function fetchGamesWithSearch(
     return null
   }
 }
-
-
-
-
+export async function fetchGame(id: number) : Promise<Game | null>{
+  try {
+    const res = await fetch(`${baseUrl}/game?id=${id}`)
+    const game = res.json()
+    return game;
+  } catch (error) {
+    console.log("failed to fetch: ", error)
+    return null;
+  }
+}

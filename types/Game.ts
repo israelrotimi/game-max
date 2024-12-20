@@ -18,6 +18,7 @@ export interface Game {
   "thumbnail": string,
   "status": string,
   "short_description": string,
+  "description": string,
   "game_url": string,
   "genre": string,
   "platform": string,

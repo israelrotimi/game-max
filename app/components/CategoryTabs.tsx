@@ -6,7 +6,6 @@ import { useState } from 'react'
 const gameCategories = [
   'featured', 'shooter', 'strategy', 'moba', 'racing', 'sports', 'social', 'open-world', 'survival'
 ]
-let currentCategory: string;
 
 export default function CategoryTabs() {
   const [activeCategory, setActiveCategory] = useState('featured')

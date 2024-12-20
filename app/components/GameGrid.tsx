@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import { GameInList } from '@/types/Game'
-import { Star } from 'lucide-react'
+import Link from 'next/link'
 
 interface GameGridProps {
   games: GameInList[]
@@ -10,6 +10,7 @@ export default function GameGrid({ games }: GameGridProps) {
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
       {games.map((game) => (
+        <Link href={`/games/${game.id}`}>
         <div 
           key={game.id} 
           className="bg-game-bg-medium rounded-lg shadow-xl overflow-hidden 
@@ -30,21 +31,11 @@ export default function GameGrid({ games }: GameGridProps) {
               <h3 className="text-xl font-bold text-game-accent-orange">
                 {game.title}
               </h3>
-              <div className="flex items-center">
-                <Star className="text-game-accent-purple mr-1" size={20} />
-                <span>{10}</span>
-              </div>
             </div>
             <p className="text-gray-400 mb-4">{game.short_description}</p>
-            <button 
-              className="w-full bg-game-accent-orange text-black 
-                py-2 rounded-lg hover:bg-game-accent-purple 
-                transition-colors font-bold"
-            >
-              Play Now
-            </button>
           </div>
         </div>
+        </Link>
       ))}
     </div>
   )
