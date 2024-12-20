@@ -2,7 +2,7 @@ import { Suspense } from 'react'
 import { GamepadIcon } from 'lucide-react'
 import { fetchFeaturedGames } from '@/lib/gameService'
 import GameGrid from '@/app/components/GameGrid'
-import SearchBar from '@//app/components/SearchBar'
+import SearchBar from '@/app/components/SearchBar'
 import CategoryTabs from '@/app/components/CategoryTabs'
 
 export default async function HomePage() {
