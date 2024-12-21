@@ -57,4 +57,3 @@ export const getServerSideProps: GetServerSideProps<PageProps> = async (context)
                                   },
                                     };
                                     };
-}
