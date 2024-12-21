@@ -4,16 +4,8 @@ import { GamepadIcon } from 'lucide-react'
 import GameGrid from '@/app/components/GameGrid'
 import SearchBar from '@/app/components/SearchBar'
 import CategoryTabs from '@/app/components/CategoryTabs'
-import { getServerSideProps } from 'next'
 
-interface PageProps {
-    params: {
-          category: string;
-    };
-}
-
-
-const page: React.FC<PageProps> = async ({params}: {params: {category: string}}) => {
+const page = async ({params}: {params: {category: string}}) => {
     const {category} = await params;
     const games = await fetchGamesByCategory(category);
   return (
@@ -46,15 +38,3 @@ const page: React.FC<PageProps> = async ({params}: {params: {category: string}})
 }
 
 export default page
-export const getServerSideProps: GetServerSideProps<PageProps> = async (context) => {
-    const { category } = context.params;
-
-      return {
-          props: {
-                params: {
-                        category,
-                              },
-                                  },
-                                    };
-                                    };
-}
