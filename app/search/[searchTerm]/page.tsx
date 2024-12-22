@@ -5,7 +5,7 @@ import GameGrid from '@/app/components/GameGrid'
 import SearchBar from '@//app/components/SearchBar'
 import CategoryTabs from '@/app/components/CategoryTabs'
 
-const page = async ({params}: {params: {searchTerm: string}}) => {
+const page = async ({params}: {params: Promise<{searchTerm: string}>}) => {
     const {searchTerm} = await params;
     const games = await fetchGamesWithSearch(searchTerm);
     console.log(games)

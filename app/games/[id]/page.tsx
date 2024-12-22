@@ -2,7 +2,7 @@ import { fetchGame } from "@/lib/gameService";
 import { GamepadIcon } from "lucide-react";
 import Image from "next/image";
 
-const page = async ({ params } : {params: {id: number}}) => {
+const page = async ({ params } : {params: Promise<{id: number}>}) => {
     const { id } = await params;
     const game = await fetchGame(id);
   return (

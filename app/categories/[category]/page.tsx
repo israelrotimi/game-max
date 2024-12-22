@@ -5,7 +5,10 @@ import GameGrid from '@/app/components/GameGrid'
 import SearchBar from '@/app/components/SearchBar'
 import CategoryTabs from '@/app/components/CategoryTabs'
 
-const page = async ({params}: {params: {category: string}}) => {
+//Change the the params type to a Promise instead of an
+//object, and then await the params to get the category
+const page = async ({params}: { params: Promise<{ category: string }> }) => {
+  console.log(params)
     const {category} = await params;
     const games = await fetchGamesByCategory(category);
   return (
