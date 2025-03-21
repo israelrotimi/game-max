@@ -51,7 +51,7 @@ const page = async ({ params } : {params: Promise<{id: number}>}) => {
 
             <div className="lg:col-span-1">
               <div className="bg-white/5 rounded-xl p-6">
-                <h2 className="text-white font-bold text-2xl mb-4">Screenshots</h2>
+                <h2 className="text-white font-bold text-2xl mb-4">Highlights</h2>
                 <div className="space-y-4">
                   {game.screenshots.map(({image}, i) => (
                     <div key={i} className="relative group">
