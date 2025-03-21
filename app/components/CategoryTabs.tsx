@@ -7,7 +7,7 @@ const gameCategories = [
   'featured', 'shooter', 'strategy', 'moba', 'racing', 'sports', 'social', 'open-world', 'survival'
 ]
 
-export default function CategoryTabs({ active}) {
+export default function CategoryTabs({ active="active" }) {
   const [activeCategory, setActiveCategory] = useState('featured')
   useEffect(()=> {
     setActiveCategory(active)

@@ -9,12 +9,14 @@ const page = async ({ params } : {params: Promise<{id: number}>}) => {
     <div className="min-h-screen bg-game-bg-dark">
       <header className="sticky top-0 z-50 backdrop-blur-md bg-game-bg-dark/95 border-b border-white/10">
         <div className="container mx-auto px-4 py-4">
+          <a href="/">
           <div className="flex items-center">
             <GamepadIcon className="text-game-accent-orange mr-3" size={32} />
             <h1 className="text-3xl md:text-4xl font-bold text-game-accent-orange">
               GameMax
             </h1>
           </div>
+          </a>
         </div>
       </header>
 

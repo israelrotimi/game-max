@@ -23,25 +23,25 @@ export async function fetchGamesByCategory(category: string) : Promise<GameInLis
   }
 }
 // This feature implementation is a pain in the ass.
-export async function fetchGamesWithSearch(
-  searchTerm: string,
-  games: Promise<GameInList[] | null> = fetchFeaturedGames()
-): Promise<GameInList[] | null> {
-  try {
-    const gamesList = await games;
-    if (!gamesList) return null;
-    const normalizedSearchTerm = searchTerm.toLowerCase();
-    const filteredGames = gamesList.filter((game) =>
-      [game.genre, game.platform, game.short_description, game.title].some((field) =>
-        field.toLowerCase().includes(normalizedSearchTerm)
-      )
-        );
-      return filteredGames
-  } catch (error) {
-    console.error("failed to fetch: ", error)
-    return null
-  }
-}
+// export async function fetchGamesWithSearch(
+//   searchTerm: string,
+//   games: Promise<GameInList[] | null> = fetchFeaturedGames()
+// ): Promise<GameInList[] | null> {
+//   try {
+//     const gamesList = await games;
+//     if (!gamesList) return null;
+//     const normalizedSearchTerm = searchTerm.toLowerCase();
+//     const filteredGames = gamesList.filter((game) =>
+//       [game.genre, game.platform, game.short_description, game.title].some((field) =>
+//         field.toLowerCase().includes(normalizedSearchTerm)
+//       )
+//         );
+//       return filteredGames
+//   } catch (error) {
+//     console.error("failed to fetch: ", error)
+//     return null
+//   }
+// }
 export async function fetchGame(id: number) : Promise<Game | null>{
   try {
     const res = await fetch(`${baseUrl}/game?id=${id}`)

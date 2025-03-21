@@ -14,9 +14,9 @@ export default async function HomePage() {
         <div className="flex items-center">
           <GamepadIcon className="text-game-accent-orange mr-3" size={32} />
           <a href="/">
-          <h1 className="text-4xl font-bold text-game-accent-orange">
-            GameMax
-          </h1>
+            <h1 className="text-4xl font-bold text-game-accent-orange">
+              GameMax
+            </h1>
           </a>
         </div>
         <div>
@@ -24,22 +24,15 @@ export default async function HomePage() {
         </div>
       </header>
 
-      <SearchBar />
+      <SearchBar showLink={true} />
 
       <Suspense fallback={<div className="text-game-accent-orange">Loading categories...</div>}>
-        <CategoryTabs />
+        <CategoryTabs active="featured" />
       </Suspense>
 
       <Suspense fallback={<div className="text-game-accent-orange">Loading games...</div>}>
-        {games && 
-          <GameGrid games={games} />} 
+        {games && <GameGrid games={games} />}
       </Suspense>
     </div>
   )
 }
-
-// (
-//   <GameGrid games={games} />
-// ) : <div>
-//     <h1 className="text-3xl text-center">Check your internet connection</h1>
-//   </div>
