@@ -9,13 +9,15 @@ export default async function HomePage() {
   const games = await fetchFeaturedGames()
 
   return (
-    <div className="container mx-auto px-4 py-8 bg-game-bg-dark min-h-screen w-full">
+    <div className="w-full min-h-screen px-4 py-8 bg-game-bg-dark text-white">
       <header className="mb-8 flex items-center justify-between">
         <div className="flex items-center">
           <GamepadIcon className="text-game-accent-orange mr-3" size={32} />
+          <a href="/">
           <h1 className="text-4xl font-bold text-game-accent-orange">
             GameMax
           </h1>
+          </a>
         </div>
         <div>
           {/* Add user/profile section if needed */}

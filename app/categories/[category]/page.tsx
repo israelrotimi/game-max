@@ -28,7 +28,7 @@ const page = async ({params}: { params: Promise<{ category: string }> }) => {
       <SearchBar />
 
       <Suspense fallback={<div className="text-game-accent-orange">Loading categories...</div>}>
-        <CategoryTabs />
+        <CategoryTabs active={category} />
       </Suspense>
 
       <Suspense fallback={<div className="text-game-accent-orange">Loading games...</div>}>

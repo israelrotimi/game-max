@@ -1,14 +1,17 @@
 'use client'
 
 import Link from 'next/link';
-import { useState } from 'react'
+import { useEffect, useState,  } from 'react'
 
 const gameCategories = [
   'featured', 'shooter', 'strategy', 'moba', 'racing', 'sports', 'social', 'open-world', 'survival'
 ]
 
-export default function CategoryTabs() {
+export default function CategoryTabs({ active}) {
   const [activeCategory, setActiveCategory] = useState('featured')
+  useEffect(()=> {
+    setActiveCategory(active)
+  }, [active])
 
   return (
     <div className="flex overflow-x-auto space-x-4 mb-6 pb-2">
